@@ -265,6 +265,93 @@ body {
 }
 
 /* ===========================================
+   STRATEGY ACCORDION (title slide)
+   =========================================== */
+.strategy-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: 1px solid oklch(30% 0.06 85);
+    border-radius: 100px;
+    padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.75rem, 2vw, 1.1rem);
+    color: var(--gold-dim);
+    font-family: var(--font-body);
+    font-size: clamp(0.7rem, 2.8vw, 0.8rem);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: clamp(0.3rem, 0.5vh, 0.5rem);
+}
+.strategy-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+.strategy-toggle:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+.strategy-toggle .chevron {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.55em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+.strategy-toggle[aria-expanded="true"] .chevron {
+    transform: rotate(-135deg) translateY(-1px);
+}
+.strategy-drawer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 0;
+    width: 100%;
+    max-width: min(85vw, 480px);
+}
+.strategy-drawer[aria-hidden="false"] {
+    opacity: 1;
+}
+.strategy-inner {
+    padding: clamp(0.6rem, 1.5vw, 1rem) 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.4rem, 1vh, 0.6rem);
+    text-align: left;
+}
+.strategy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.strategy-item .s-num {
+    width: clamp(18px, 5vw, 22px);
+    height: clamp(18px, 5vw, 22px);
+    background: oklch(22% 0.04 85);
+    border: 1px solid oklch(30% 0.06 85);
+    color: var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.625rem, 2.2vw, 0.7rem);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.strategy-item strong {
+    color: var(--gold-dim);
+    font-weight: 600;
+}
+
+/* ===========================================
    SLIDE: VOTE RECOMMENDATION (Senado / Cámara)
    =========================================== */
 .slide--vote {
@@ -372,6 +459,36 @@ body {
     line-height: 1.4;
 }
 
+/* --- Cámara slide accent override (distinguish from Senado) --- */
+.slide--camara .vote-block {
+    border-left-color: var(--blue);
+}
+.slide--camara .rec-badge {
+    background: oklch(22% 0.05 250);
+    color: var(--blue);
+}
+.slide--camara .rec-badge .dot {
+    background: var(--blue);
+}
+
+/* --- Vote tip --- */
+.vote-tip {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.3rem, 1.5vw, 0.5rem);
+    background: oklch(22% 0.04 85);
+    border: 1px solid oklch(30% 0.06 85);
+    border-radius: clamp(6px, 0.8vw, 8px);
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.6rem, 2vw, 1rem);
+    font-size: var(--small-size);
+    color: var(--gold-dim);
+    line-height: 1.4;
+}
+.vote-tip strong {
+    color: var(--gold);
+    font-weight: 600;
+}
+
 /* ===========================================
    SLIDE 4: CONSULTA WARNING
    =========================================== */
@@ -386,6 +503,13 @@ body {
     text-align: center;
     max-width: min(85vw, 600px);
     margin: 0 auto;
+}
+.slide--warning .slide-content {
+    align-items: center;
+}
+.slide--warning .num {
+    background: var(--red);
+    color: white;
 }
 .warning-icon-big {
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -418,13 +542,14 @@ body {
 /* ===========================================
    SLIDE 5: CANDIDATES GRID
    =========================================== */
+.section-tag--center { margin: 0 auto; }
 .slide--candidates {
     background: var(--navy);
 }
 .cand-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(0.5rem, 2vw, 0.75rem);
+    gap: clamp(0.4rem, 1.5vw, 0.75rem);
     max-width: min(92vw, 900px);
     margin: 0 auto;
     width: 100%;
@@ -437,6 +562,11 @@ body {
     .cand-card { padding: clamp(0.4rem, 1vw, 0.75rem); }
     .cand-card h3 { font-size: clamp(0.8rem, 2vw, 1.1rem); }
 }
+/* Hide 4th bullet on short phones to prevent overflow */
+@media (max-height: 700px) and (max-width: 599px) {
+    .cand-card li:nth-child(4) { display: none; }
+    .cand-card { padding: clamp(0.6rem, 1.5vw, 1.5rem); }
+}
 .cand-card {
     background: var(--navy-mid);
     border-radius: clamp(8px, 1vw, 12px);
@@ -444,7 +574,7 @@ body {
     border-top: clamp(3px, 0.4vw, 4px) solid var(--navy-light);
     display: flex;
     flex-direction: column;
-    gap: clamp(0.3rem, 0.5vh, 0.5rem);
+    gap: clamp(0.25rem, 0.4vh, 0.5rem);
 }
 .cand-card--1 { border-top-color: var(--green); }
 .cand-card--2 { border-top-color: var(--blue); }
@@ -494,6 +624,9 @@ body {
 .slide--summary {
     background: var(--navy);
 }
+.slide--summary .slide-content {
+    gap: var(--content-gap);
+}
 .summary-table {
     background: var(--navy-mid);
     border-radius: clamp(8px, 1vw, 14px);
@@ -520,6 +653,12 @@ body {
     border-bottom: 1px solid oklch(22% 0.025 260);
     gap: clamp(0.3rem, 0.5vw, 0.5rem);
     align-items: center;
+}
+@media (max-width: 420px) {
+    .summary-row {
+        grid-template-columns: 1fr 1.3fr;
+    }
+    .summary-row span:nth-child(3) { display: none; }
 }
 .summary-row:last-child { border-bottom: none; }
 .summary-row.head {
@@ -569,6 +708,9 @@ body {
     font-weight: 700;
     color: var(--text-light);
 }
+.log-value--url {
+    font-size: clamp(0.65rem, 2.8vw, 0.8rem);
+}
 
 /* ===========================================
    SLIDE 7: CLOSING
@@ -593,6 +735,13 @@ body {
     font-weight: 800;
     font-style: normal;
     color: var(--gold);
+}
+.closing-divider {
+    width: clamp(30px, 8vw, 60px);
+    height: 2px;
+    background: oklch(30% 0.06 85);
+    border: none;
+    margin: 0;
 }
 .closing-fine {
     font-size: clamp(0.65rem, 2.8vw, 0.65rem);
@@ -687,12 +836,10 @@ body {
     opacity: 0;
     transform: translateY(clamp(15px, 2vh, 30px));
     transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
 }
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
-    will-change: auto; /* Release hint after animation completes */
 }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
@@ -724,6 +871,29 @@ body {
         <h1 class="title-main reveal reveal-delay-1">Guía de<br><em>Votación</em></h1>
         <p class="title-sub reveal reveal-delay-2">8 de Marzo 2026 · Qué votar y por qué, desde una perspectiva de libre mercado.</p>
         <p class="title-location reveal reveal-delay-3">Pereira, Risaralda · Colombia</p>
+        <button class="strategy-toggle reveal reveal-delay-4" id="strategyToggle" aria-expanded="false" aria-controls="strategyDrawer">
+            ¿Por qué estas recomendaciones? <span class="chevron"></span>
+        </button>
+        <div class="strategy-drawer" id="strategyDrawer" aria-hidden="true">
+            <div class="strategy-inner">
+                <div class="strategy-item">
+                    <span class="s-num">1</span>
+                    <span><strong>Concentrar, no fragmentar.</strong> El voto de centro-derecha repartido entre 5 candidatos le regala la elección a la izquierda. Mejor pocos votos juntos que muchos dispersos.</span>
+                </div>
+                <div class="strategy-item">
+                    <span class="s-num">2</span>
+                    <span><strong>Votar al que gane, no solo al que te guste.</strong> La consulta no es un test de pureza ideológica. Es elegir al candidato competitivo para segunda vuelta.</span>
+                </div>
+                <div class="strategy-item">
+                    <span class="s-num">3</span>
+                    <span><strong>Armar un Congreso que sirva de contrapeso.</strong> Un presidente sin bloque legislativo no frena nada. Senado y Cámara son el muro que aprueba o para todo.</span>
+                </div>
+                <div class="strategy-item">
+                    <span class="s-num">4</span>
+                    <span><strong>Pedir la consulta.</strong> Es el único tarjetón que no les dan automáticamente. Sin pedirlo, no existe.</span>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="scroll-cue decorative">
         <span>Desliza</span>
@@ -746,14 +916,17 @@ body {
             <div class="rec-badge"><span class="dot"></span> Voto recomendado</div>
             <h2>Centro Democrático</h2>
             <p class="vote-detail">
-                El bloque más fuerte contra Petro y Cepeda.
-                <strong>Andrés Forero</strong> encabeza la lista. Uribe en el #25.
-                Menos impuestos, más inversión, seguridad sin excusas.
+                La lista de oposición más consolidada, con mayor chance de armar un bloque legislativo fuerte.
+                <strong>Andrés Forero</strong> encabeza la lista (Uribe en el #25).
+                Impuestos bajos, inversión privada, seguridad sin excusas.
             </p>
         </div>
         <div class="alt-block reveal reveal-delay-2">
             <div class="alt-badge">Alternativa</div>
             <p>Salvación Nacional: derecha dura, estilo Bukele (Abelardo de la Espriella)</p>
+        </div>
+        <div class="vote-tip reveal reveal-delay-3">
+            <strong>Tip:</strong> no necesitas elegir candidato. Marca el logo de Centro Democrático y listo.
         </div>
     </div>
     <div class="flag-stripe"></div>
@@ -762,7 +935,7 @@ body {
 <!-- =============================================
      SLIDE 3: CÁMARA
      ============================================= -->
-<section class="slide slide--vote" data-slide="2">
+<section class="slide slide--vote slide--camara" data-slide="2">
     <div class="flag-stripe"></div>
     <div class="slide-content">
         <div class="section-tag reveal">
@@ -774,8 +947,11 @@ body {
             <h2>Centro Democrático + MIRA</h2>
             <p class="vote-detail">
                 <strong>Geovany Londoño</strong>, 2 periodos como diputado.
-                La única ficha de derecha que puede ganar 1 de los 4 curules en Risaralda.
+                Una de las candidaturas competitivas del centro-derecha para los 4 curules de Risaralda.
             </p>
+        </div>
+        <div class="vote-tip reveal reveal-delay-2">
+            <strong>Tip:</strong> no necesitas elegir candidato. Marca el logo de Centro Democrático + MIRA y listo.
         </div>
     </div>
     <div class="flag-stripe"></div>
@@ -786,15 +962,16 @@ body {
      ============================================= -->
 <section class="slide slide--warning" data-slide="3">
     <div class="flag-stripe"></div>
-    <div class="slide-content" style="align-items:center;">
+    <div class="slide-content">
         <div class="section-tag reveal">
-            <div class="num" style="background:var(--red);color:white;">3</div>
+            <div class="num">3</div>
             <span>Consulta Presidencial</span>
         </div>
         <div class="warning-box reveal reveal-delay-1">
             <span class="warning-icon-big">⚠️</span>
             <h2>Hay que pedirla</h2>
             <p>
+                Senado y Cámara los reciben automáticamente; la consulta presidencial <strong>no</strong>.
                 Pídanle al jurado la papeleta de la
                 <span class="highlight">"Gran Consulta por Colombia"</span>.
                 Si no la piden, no se las dan.
@@ -810,38 +987,38 @@ body {
 <section class="slide slide--candidates" data-slide="4">
     <div class="flag-stripe"></div>
     <div class="slide-content">
-        <div class="section-tag reveal" style="margin:0 auto;">
+        <div class="section-tag section-tag--center reveal">
             <span>Candidatos · Consulta Presidencial</span>
         </div>
         <div class="cand-grid">
             <div class="cand-card cand-card--1 reveal reveal-delay-1">
-                <div class="cand-rank">1ª Opción</div>
+                <div class="cand-rank">Derecha fuerte</div>
                 <h3>Paloma Valencia</h3>
                 <ul>
-                    <li>Centro Democrático</li>
-                    <li>Lidera encuestas ~44%</li>
-                    <li>Menos impuestos</li>
-                    <li>Libre mercado</li>
+                    <li>Centro Democrático, lidera ampliamente las encuestas</li>
+                    <li>Impuestos bajos, libre mercado</li>
+                    <li>Junta todo el bloque de derecha</li>
+                    <li>Polariza: eso suma o resta según el rival</li>
                 </ul>
             </div>
             <div class="cand-card cand-card--2 reveal reveal-delay-2">
-                <div class="cand-rank">2ª Opción</div>
-                <h3>Vicky Dávila</h3>
+                <div class="cand-rank">Centro pragmático</div>
+                <h3>J.D. Oviedo</h3>
                 <ul>
-                    <li>Independiente</li>
-                    <li>~14% en encuestas</li>
-                    <li>Pro-fracking, disciplina fiscal</li>
-                    <li>Sin el peso del uribismo</li>
+                    <li>Ex-director DANE, tendencia al alza</li>
+                    <li>Perfil técnico, no polariza</li>
+                    <li>Captura voto de centro contra la izquierda</li>
+                    <li>Más ancho electoralmente en segunda vuelta</li>
                 </ul>
             </div>
             <div class="cand-card cand-card--3 reveal reveal-delay-3">
-                <div class="cand-rank">3ª Opción</div>
-                <h3>J.D. Oviedo</h3>
+                <div class="cand-rank">Otra opción</div>
+                <h3>Vicky Dávila</h3>
                 <ul>
-                    <li>Ex-director DANE</li>
-                    <li>~11% en encuestas</li>
-                    <li>Tecnócrata, no político</li>
-                    <li>Gobierna con datos</li>
+                    <li>Independiente, compite por el segundo lugar</li>
+                    <li>Pro-fracking, disciplina fiscal</li>
+                    <li>Sin el peso del uribismo</li>
+                    <li>Riesgo: divide el voto de derecha</li>
                 </ul>
             </div>
         </div>
@@ -854,7 +1031,7 @@ body {
      ============================================= -->
 <section class="slide slide--summary" data-slide="5">
     <div class="flag-stripe"></div>
-    <div class="slide-content" style="gap:var(--content-gap);">
+    <div class="slide-content">
         <div class="summary-table reveal">
             <div class="summary-table-head">
                 <h3>Resumen Rápido</h3>
@@ -867,17 +1044,17 @@ body {
             <div class="summary-row">
                 <span>Senado</span>
                 <span class="vote-name">Centro Democrático</span>
-                <span>Bloque opositor más fuerte</span>
+                <span>Oposición más consolidada</span>
             </div>
             <div class="summary-row">
                 <span>Cámara</span>
                 <span class="vote-name">C. Democrático + MIRA</span>
-                <span>Londoño tiene opción real</span>
+                <span>Candidatura competitiva</span>
             </div>
             <div class="summary-row">
                 <span>Consulta ⚠️</span>
-                <span class="vote-name">Paloma Valencia</span>
-                <span>Une la derecha contra Cepeda</span>
+                <span class="vote-name">Valencia o Oviedo</span>
+                <span>Derecha dura o centro amplio</span>
             </div>
         </div>
         <div class="logistics-bar reveal reveal-delay-1">
@@ -891,7 +1068,7 @@ body {
             </div>
             <div class="log-item">
                 <div class="log-label">Tu puesto</div>
-                <div class="log-value" style="font-size:clamp(0.65rem,2.8vw,0.8rem)">registraduria.gov.co</div>
+                <div class="log-value log-value--url">registraduria.gov.co</div>
             </div>
         </div>
     </div>
@@ -905,10 +1082,11 @@ body {
     <div class="flag-stripe"></div>
     <div class="slide-content">
         <p class="closing-motto reveal">
-            Armar un Congreso que frene a la izquierda. Elegir al candidato <strong>más fuerte</strong> para mayo.
+            Hoy el voto define el <strong>equilibrio institucional</strong> del país para los próximos cuatro años.
         </p>
-        <p class="closing-fine reveal reveal-delay-1">
-            Guía informativa · Perspectiva libertaria / libre mercado<br>
+        <hr class="closing-divider reveal reveal-delay-1">
+        <p class="closing-fine reveal reveal-delay-2">
+            Guía informativa · Perspectiva de centro-derecha / libre mercado<br>
             No es propaganda electoral oficial · Marzo 8, 2026
         </p>
     </div>
@@ -1014,16 +1192,35 @@ body {
 
     slides.forEach(s => observer.observe(s));
 
-    // Reveal animations on scroll
+    // Reveal animations on scroll (will-change applied JIT for GPU perf)
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                entry.target.style.willChange = 'opacity, transform';
                 entry.target.classList.add('visible');
+                // Release composited layer after animation completes
+                setTimeout(() => { entry.target.style.willChange = 'auto'; }, 750);
             }
         });
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Strategy accordion
+    const stratToggle = document.getElementById('strategyToggle');
+    const stratDrawer = document.getElementById('strategyDrawer');
+    if (stratToggle && stratDrawer) {
+        stratToggle.addEventListener('click', () => {
+            const open = stratToggle.getAttribute('aria-expanded') === 'true';
+            stratToggle.setAttribute('aria-expanded', !open);
+            stratDrawer.setAttribute('aria-hidden', open);
+            if (!open) {
+                stratDrawer.style.maxHeight = stratDrawer.scrollHeight + 'px';
+            } else {
+                stratDrawer.style.maxHeight = '0';
+            }
+        });
+    }
 
     // Init
     updateUI(0);
