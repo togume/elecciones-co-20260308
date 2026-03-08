@@ -56,10 +56,10 @@ html {
 /* --- MOBILE BASE TOKENS (320-414px) --- */
 :root {
     --title-size: clamp(1.75rem, 9vw, 2.5rem);
-    --h2-size: clamp(1.2rem, 5.5vw, 1.6rem);
-    --h3-size: clamp(1rem, 4.5vw, 1.35rem);
-    --body-size: clamp(0.875rem, 3.8vw, 1rem);
-    --small-size: clamp(0.75rem, 3.2vw, 0.875rem);
+    --h2-size: clamp(1.3rem, 5.5vw, 1.6rem);
+    --h3-size: clamp(1.05rem, 4.5vw, 1.35rem);
+    --body-size: clamp(1rem, 4.2vw, 1.125rem);
+    --small-size: clamp(0.875rem, 3.6vw, 1rem);
     --slide-padding: clamp(1rem, 5vw, 1.5rem);
     --content-gap: clamp(0.75rem, 3vw, 1.25rem);
     --element-gap: clamp(0.35rem, 1.5vw, 0.6rem);
@@ -70,7 +70,7 @@ html {
     max-height: min(85vh, 700px);
 }
 .feature-list, .bullet-list { gap: clamp(0.5rem, 1.5vh, 1rem); }
-.feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+.feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.5; }
 .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -147,14 +147,14 @@ img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fi
     --blue-soft: oklch(92% 0.04 250);
     --surface: oklch(97% 0.005 85);
     --text-light: oklch(90% 0.01 260);
-    --text-muted: oklch(65% 0.02 260);
+    --text-muted: oklch(70% 0.02 260);
     --font-display: 'Fraunces', Georgia, serif;
     --font-body: 'Outfit', system-ui, sans-serif;
 }
 
 body {
     font-family: var(--font-body);
-    font-weight: 350; /* Slightly lighter on dark bg for perceived balance */
+    font-weight: 400;
     background: var(--navy);
     color: var(--text-light);
     -webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@ body {
    COLOMBIAN FLAG STRIPE (decorative)
    =========================================== */
 .flag-stripe {
-    height: clamp(3px, 0.5vh, 5px);
+    height: clamp(4px, 0.6vh, 6px);
     background: linear-gradient(
         to right,
         oklch(82% 0.16 95) 0%, oklch(82% 0.16 95) 50%,
@@ -203,7 +203,7 @@ body {
     gap: var(--content-gap);
 }
 .title-eyebrow {
-    font-size: clamp(0.7rem, 3vw, 0.85rem);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -224,15 +224,15 @@ body {
     color: var(--gold);
 }
 .title-sub {
-    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    font-size: clamp(0.95rem, 3.8vw, 1.1rem);
     color: var(--text-muted);
     font-weight: 400;
     max-width: 32ch;
     line-height: 1.5;
 }
 .title-location {
-    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
-    color: oklch(50% 0.02 260);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
+    color: oklch(55% 0.02 260);
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -247,8 +247,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.3rem;
-    color: oklch(45% 0.02 260);
-    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    color: oklch(55% 0.02 260);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     animation: pulseDown 2s ease-in-out infinite;
@@ -256,8 +256,8 @@ body {
 .scroll-cue .arrow {
     width: clamp(16px, 2vw, 22px);
     height: clamp(16px, 2vw, 22px);
-    border-right: 2px solid oklch(45% 0.02 260);
-    border-bottom: 2px solid oklch(45% 0.02 260);
+    border-right: 2px solid oklch(55% 0.02 260);
+    border-bottom: 2px solid oklch(55% 0.02 260);
     transform: rotate(45deg);
     margin-top: -4px;
 }
@@ -279,7 +279,7 @@ body {
     padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.75rem, 2vw, 1.1rem);
     color: var(--gold-dim);
     font-family: var(--font-body);
-    font-size: clamp(0.7rem, 2.8vw, 0.8rem);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
     font-weight: 500;
     cursor: pointer;
     transition: border-color 0.25s, color 0.25s;
@@ -343,7 +343,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.625rem, 2.2vw, 0.7rem);
+    font-size: clamp(0.7rem, 2.5vw, 0.75rem);
     font-weight: 700;
     flex-shrink: 0;
     margin-top: 1px;
@@ -380,11 +380,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(0.65rem, 2.8vw, 0.75rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
 }
 .section-tag span {
-    font-size: clamp(0.7rem, 2.8vw, 0.8rem);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -405,7 +405,7 @@ body {
     color: var(--green);
     padding: clamp(0.15rem, 0.3vh, 0.25rem) clamp(0.5rem, 0.8vw, 0.75rem);
     border-radius: 4px;
-    font-size: clamp(0.65rem, 2.5vw, 0.65rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -448,7 +448,7 @@ body {
     color: var(--blue);
     padding: clamp(0.12rem, 0.2vh, 0.2rem) clamp(0.4rem, 0.6vw, 0.6rem);
     border-radius: 3px;
-    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -458,7 +458,7 @@ body {
 .alt-block p {
     font-size: var(--small-size);
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* --- Cámara slide accent override (distinguish from Senado) --- */
@@ -582,7 +582,7 @@ body {
 .cand-card--2 { border-top-color: var(--blue); }
 .cand-card--3 { border-top-color: oklch(50% 0.02 260); }
 .cand-rank {
-    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -606,7 +606,7 @@ body {
 .cand-card li {
     font-size: var(--small-size);
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
     padding-left: clamp(0.6rem, 1vw, 0.9rem);
     position: relative;
 }
@@ -642,7 +642,7 @@ body {
     padding: clamp(0.4rem, 0.8vh, 0.6rem) clamp(0.75rem, 1.2vw, 1.25rem);
 }
 .summary-table-head h3 {
-    font-size: clamp(0.7rem, 2.8vw, 0.7rem);
+    font-size: clamp(0.8rem, 3vw, 0.85rem);
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -669,10 +669,10 @@ body {
 .summary-row span {
     font-size: var(--small-size);
     color: var(--text-muted);
-    line-height: 1.3;
+    line-height: 1.5;
 }
 .summary-row.head span {
-    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -693,12 +693,14 @@ body {
     margin: 0 auto;
     width: 100%;
 }
-@media (max-width: 360px) {
-    .logistics-bar { grid-template-columns: 1fr; gap: 0.3rem; }
+@media (max-width: 420px) {
+    .logistics-bar { grid-template-columns: 1fr; gap: 0.4rem; padding: clamp(0.8rem, 3vw, 1rem); }
+    .log-item { display: flex; justify-content: space-between; align-items: center; }
+    .log-label { margin-bottom: 0; }
 }
 .log-item { text-align: center; }
 .log-label {
-    font-size: clamp(0.625rem, 2.5vw, 0.625rem);
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -706,13 +708,51 @@ body {
     margin-bottom: clamp(0.1rem, 0.2vh, 0.15rem);
 }
 .log-value {
-    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
     font-weight: 700;
     color: var(--text-light);
 }
 .log-value--url {
-    font-size: clamp(0.65rem, 2.8vw, 0.8rem);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
 }
+
+/* --- Share button --- */
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 100px;
+    padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.25rem, 3vw, 2rem);
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0 auto;
+    max-width: min(90vw, 400px);
+    width: 100%;
+}
+.share-btn:active {
+    transform: scale(0.97);
+}
+.share-btn:hover {
+    background: var(--gold-light);
+}
+.share-btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+.share-btn svg {
+    width: clamp(16px, 4vw, 20px);
+    height: clamp(16px, 4vw, 20px);
+    flex-shrink: 0;
+}
+.share-btn--hidden { display: none; }
 
 /* ===========================================
    SLIDE 7: CLOSING
@@ -746,8 +786,8 @@ body {
     margin: 0;
 }
 .closing-fine {
-    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
-    color: oklch(42% 0.015 260);
+    font-size: clamp(0.8rem, 3vw, 0.85rem);
+    color: oklch(55% 0.015 260);
     line-height: 1.6;
     max-width: 45ch;
 }
@@ -764,6 +804,9 @@ body {
     flex-direction: column;
     gap: clamp(4px, 1vh, 10px);
     z-index: 100;
+}
+@media (max-width: 399px) {
+    .nav-dots { display: none; }
 }
 .nav-dot {
     width: clamp(8px, 2.2vw, 10px);
@@ -1073,6 +1116,10 @@ body {
                 <div class="log-value log-value--url">registraduria.gov.co</div>
             </div>
         </div>
+        <button class="share-btn reveal reveal-delay-2" id="shareBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Compartir esta guía
+        </button>
     </div>
     <div class="flag-stripe"></div>
 </section>
@@ -1222,6 +1269,27 @@ body {
                 stratDrawer.style.maxHeight = '0';
             }
         });
+    }
+
+    // Share button
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+        if (navigator.share) {
+            shareBtn.addEventListener('click', () => {
+                navigator.share({
+                    title: 'Guía de Votación — 8 Marzo 2026',
+                    text: 'Qué votar y por qué en las elecciones legislativas. Pereira, Risaralda.',
+                    url: window.location.href
+                });
+            });
+        } else {
+            shareBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    shareBtn.textContent = '¡Enlace copiado!';
+                    setTimeout(() => { shareBtn.textContent = 'Compartir esta guía'; }, 2000);
+                });
+            });
+        }
     }
 
     // Init
