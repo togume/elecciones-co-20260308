@@ -755,6 +755,126 @@ body {
 .share-btn--hidden { display: none; }
 
 /* ===========================================
+   SLIDE: LEAD CAPTURE
+   =========================================== */
+.slide--lead {
+    background: var(--navy);
+}
+.slide--lead .slide-content {
+    align-items: center;
+    gap: var(--content-gap);
+}
+.lead-box {
+    background: var(--navy-mid);
+    border-radius: clamp(8px, 1vw, 14px);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    max-width: min(90vw, 480px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+.lead-box h2 {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 600;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+.lead-box p {
+    font-size: var(--body-size);
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.lead-toggle {
+    display: flex;
+    background: var(--navy-light);
+    border-radius: 100px;
+    padding: 3px;
+    gap: 0;
+}
+.lead-toggle-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem);
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: var(--small-size);
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+.lead-toggle-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+.lead-input {
+    width: 100%;
+    background: var(--navy-light);
+    border: 1.5px solid oklch(30% 0.03 260);
+    border-radius: clamp(6px, 0.8vw, 10px);
+    padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(0.75rem, 2vw, 1rem);
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--text-light);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.lead-input::placeholder {
+    color: oklch(45% 0.02 260);
+}
+.lead-input:focus {
+    border-color: var(--gold);
+}
+.lead-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    border-radius: 100px;
+    padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+}
+.lead-submit:active { transform: scale(0.97); }
+.lead-submit:hover { background: var(--gold-light); }
+.lead-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+.lead-success {
+    text-align: center;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+}
+.lead-success .check {
+    font-size: clamp(2rem, 8vw, 3rem);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.lead-success p {
+    color: var(--text-light);
+    font-weight: 500;
+}
+.lead-fine {
+    font-size: clamp(0.75rem, 2.8vw, 0.8rem);
+    color: oklch(50% 0.02 260);
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ===========================================
    SLIDE 7: CLOSING
    =========================================== */
 .slide--closing {
@@ -1142,6 +1262,29 @@ body {
     <div class="flag-stripe"></div>
 </section>
 
+<!-- =============================================
+     SLIDE 8: LEAD CAPTURE
+     ============================================= -->
+<section class="slide slide--lead" data-slide="7">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <div class="lead-box reveal">
+            <h2>No te pierdas la próxima</h2>
+            <p>Dejanos tu contacto y te avisamos cuando tengamos una nueva guía — elecciones, consultas, lo que venga.</p>
+            <div class="lead-toggle" role="radiogroup" aria-label="Tipo de contacto">
+                <button class="lead-toggle-btn active" type="button" data-type="whatsapp" role="radio" aria-checked="true">WhatsApp</button>
+                <button class="lead-toggle-btn" type="button" data-type="email" role="radio" aria-checked="false">Email</button>
+            </div>
+            <form id="leadForm" autocomplete="on">
+                <input class="lead-input" id="leadInput" type="tel" inputmode="tel" placeholder="Tu número de WhatsApp" required autocomplete="tel">
+                <button class="lead-submit" type="submit" id="leadSubmit" style="margin-top: clamp(0.5rem, 1vw, 0.75rem);">Avisarme</button>
+            </form>
+            <p class="lead-fine">Solo para avisarte. Sin spam, sin grupos.</p>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
 <!-- ===========================================
      JAVASCRIPT: Navigation & Animations
      =========================================== -->
@@ -1290,6 +1433,67 @@ body {
                 });
             });
         }
+    }
+
+    // Lead capture form
+    const leadForm = document.getElementById('leadForm');
+    const leadInput = document.getElementById('leadInput');
+    const leadSubmit = document.getElementById('leadSubmit');
+    const toggleBtns = document.querySelectorAll('.lead-toggle-btn');
+    let contactType = 'whatsapp';
+
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            contactType = btn.dataset.type;
+            toggleBtns.forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-checked', b === btn);
+            });
+            if (contactType === 'email') {
+                leadInput.type = 'email';
+                leadInput.inputMode = 'email';
+                leadInput.placeholder = 'Tu correo electrónico';
+                leadInput.autocomplete = 'email';
+            } else {
+                leadInput.type = 'tel';
+                leadInput.inputMode = 'tel';
+                leadInput.placeholder = 'Tu número de WhatsApp';
+                leadInput.autocomplete = 'tel';
+            }
+            leadInput.value = '';
+            leadInput.focus();
+        });
+    });
+
+    if (leadForm) {
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const val = leadInput.value.trim();
+            if (!val) return;
+
+            leadSubmit.disabled = true;
+            leadSubmit.textContent = 'Enviando...';
+
+            try {
+                const res = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contacto: val, tipo: contactType }),
+                });
+                if (res.ok) {
+                    leadForm.parentElement.innerHTML =
+                        '<div class="lead-success">' +
+                        '<span class="check">&#10003;</span>' +
+                        '<p>¡Listo! Te avisamos cuando haya algo nuevo.</p>' +
+                        '</div>';
+                } else {
+                    throw new Error();
+                }
+            } catch {
+                leadSubmit.disabled = false;
+                leadSubmit.textContent = 'Reintentar';
+            }
+        });
     }
 
     // Init
