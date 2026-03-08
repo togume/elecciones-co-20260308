@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guía de Votación · 8 Marzo 2026 · Pereira, Risaralda</title>
+<meta name="description" content="Guía rápida de votación para las elecciones legislativas del 8 de marzo 2026. Perspectiva libre mercado. Pereira, Risaralda.">
+<meta property="og:title" content="Guía de Votación — Elecciones 8 Marzo 2026">
+<meta property="og:description" content="Qué votar y por qué. Senado, Cámara y Consulta Presidencial desde una perspectiva de libre mercado.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1a1f2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ===========================================
+   MOBILE-FIRST BASE
+   Target: 320-414px phones (portrait)
+   =========================================== */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0; padding: 0;
+}
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    overflow: hidden;
+    padding: var(--slide-padding);
+    padding-left: max(var(--slide-padding), env(safe-area-inset-left));
+    padding-right: max(var(--slide-padding), env(safe-area-inset-right));
+}
+
+/* --- MOBILE BASE TOKENS (320-414px) --- */
+:root {
+    --title-size: clamp(1.75rem, 9vw, 2.5rem);
+    --h2-size: clamp(1.2rem, 5.5vw, 1.6rem);
+    --h3-size: clamp(1rem, 4.5vw, 1.35rem);
+    --body-size: clamp(0.875rem, 3.8vw, 1rem);
+    --small-size: clamp(0.75rem, 3.2vw, 0.875rem);
+    --slide-padding: clamp(1rem, 5vw, 1.5rem);
+    --content-gap: clamp(0.75rem, 3vw, 1.25rem);
+    --element-gap: clamp(0.35rem, 1.5vw, 0.6rem);
+}
+
+.card, .container, .content-box {
+    max-width: min(92vw, 1000px);
+    max-height: min(85vh, 700px);
+}
+.feature-list, .bullet-list { gap: clamp(0.5rem, 1.5vh, 1rem); }
+.feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.5rem, 2vw, 1rem);
+}
+img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; }
+
+/* --- TABLET / LANDSCAPE PHONE (600px+) --- */
+@media (min-width: 600px) {
+    :root {
+        --title-size: clamp(2rem, 5vw, 4rem);
+        --h2-size: clamp(1.35rem, 3.5vw, 2.5rem);
+        --h3-size: clamp(1.1rem, 2.5vw, 1.75rem);
+        --body-size: clamp(0.9rem, 1.6vw, 1.125rem);
+        --small-size: clamp(0.8rem, 1.2vw, 0.875rem);
+        --slide-padding: clamp(1.5rem, 4vw, 4rem);
+        --content-gap: clamp(1rem, 2vw, 2rem);
+    }
+    .grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+/* --- SHORT VIEWPORTS (landscape phones, small tablets) --- */
+@media (max-height: 700px) {
+    :root {
+        --slide-padding: clamp(0.75rem, 3vw, 2rem);
+        --content-gap: clamp(0.5rem, 1.5vw, 1rem);
+        --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+        --h2-size: clamp(1rem, 3vw, 1.75rem);
+    }
+}
+@media (max-height: 600px) {
+    :root {
+        --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+        --content-gap: clamp(0.4rem, 1vw, 0.75rem);
+        --title-size: clamp(1.1rem, 4vw, 2rem);
+        --body-size: clamp(0.75rem, 1.5vw, 0.95rem);
+    }
+    .nav-dots, .keyboard-hint, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+    :root {
+        --slide-padding: clamp(0.4rem, 2vw, 1rem);
+        --title-size: clamp(1rem, 3.5vw, 1.5rem);
+        --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+        --body-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    }
+}
+
+/* --- ACCESSIBILITY --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+    html { scroll-behavior: auto; }
+}
+
+/* ===========================================
+   DESIGN TOKENS
+   Colombian editorial aesthetic
+   =========================================== */
+:root {
+    --navy: oklch(14% 0.03 260);
+    --navy-mid: oklch(20% 0.03 260);
+    --navy-light: oklch(28% 0.025 260);
+    --gold: oklch(78% 0.14 85);
+    --gold-dim: oklch(65% 0.10 85);
+    --gold-light: oklch(92% 0.05 85);
+    --red: oklch(55% 0.19 25);
+    --red-soft: oklch(92% 0.04 25);
+    --green: oklch(62% 0.14 155);
+    --green-soft: oklch(92% 0.04 155);
+    --blue: oklch(58% 0.12 250);
+    --blue-soft: oklch(92% 0.04 250);
+    --surface: oklch(97% 0.005 85);
+    --text-light: oklch(90% 0.01 260);
+    --text-muted: oklch(65% 0.02 260);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 350; /* Slightly lighter on dark bg for perceived balance */
+    background: var(--navy);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: normal;
+    font-variant-numeric: tabular-nums;
+}
+
+/* === FOCUS & SELECTION === */
+::selection {
+    background: oklch(78% 0.14 85 / 0.3);
+    color: var(--text-light);
+}
+:focus { outline: none; }
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ===========================================
+   COLOMBIAN FLAG STRIPE (decorative)
+   =========================================== */
+.flag-stripe {
+    height: clamp(3px, 0.5vh, 5px);
+    background: linear-gradient(
+        to right,
+        oklch(82% 0.16 95) 0%, oklch(82% 0.16 95) 50%,
+        oklch(48% 0.14 260) 50%, oklch(48% 0.14 260) 75%,
+        oklch(55% 0.20 25) 75%
+    );
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* ===========================================
+   SLIDE 1: TITLE
+   =========================================== */
+.slide--title {
+    background: var(--navy);
+    align-items: center;
+    text-align: center;
+}
+.slide--title .slide-content {
+    align-items: center;
+    gap: var(--content-gap);
+}
+.title-eyebrow {
+    font-size: clamp(0.7rem, 3vw, 0.85rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.9;
+}
+.title-main {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 12vw, 5.5rem);
+    font-weight: 800;
+    color: var(--text-light);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+.title-main em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+}
+.title-sub {
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 32ch;
+    line-height: 1.5;
+}
+.title-location {
+    font-size: clamp(0.65rem, 2.5vw, 0.75rem);
+    color: oklch(50% 0.02 260);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: clamp(0.5rem, 1vh, 1rem);
+}
+.scroll-cue {
+    position: absolute;
+    bottom: clamp(1rem, 3vh, 2.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    color: oklch(45% 0.02 260);
+    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: pulseDown 2s ease-in-out infinite;
+}
+.scroll-cue .arrow {
+    width: clamp(16px, 2vw, 22px);
+    height: clamp(16px, 2vw, 22px);
+    border-right: 2px solid oklch(45% 0.02 260);
+    border-bottom: 2px solid oklch(45% 0.02 260);
+    transform: rotate(45deg);
+    margin-top: -4px;
+}
+@keyframes pulseDown {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 0.8; transform: translateX(-50%) translateY(5px); }
+}
+
+/* ===========================================
+   SLIDE: VOTE RECOMMENDATION (Senado / Cámara)
+   =========================================== */
+.slide--vote {
+    background: var(--navy);
+}
+.slide--vote .slide-content {
+    gap: var(--content-gap);
+}
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(0.3rem, 0.5vw, 0.5rem);
+    background: var(--navy-light);
+    padding: clamp(0.25rem, 0.5vh, 0.4rem) clamp(0.6rem, 1vw, 1rem);
+    border-radius: 100px;
+    width: fit-content;
+}
+.section-tag .num {
+    width: clamp(20px, 5.5vw, 26px);
+    height: clamp(20px, 5.5vw, 26px);
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.65rem, 2.8vw, 0.75rem);
+    font-weight: 700;
+}
+.section-tag span {
+    font-size: clamp(0.7rem, 2.8vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.vote-block {
+    background: var(--navy-mid);
+    border-radius: clamp(8px, 1vw, 16px);
+    padding: clamp(1rem, 2.5vw, 2rem);
+    border-left: clamp(3px, 0.4vw, 5px) solid var(--green);
+    position: relative;
+}
+.rec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: oklch(25% 0.06 155);
+    color: var(--green);
+    padding: clamp(0.15rem, 0.3vh, 0.25rem) clamp(0.5rem, 0.8vw, 0.75rem);
+    border-radius: 4px;
+    font-size: clamp(0.65rem, 2.5vw, 0.65rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: clamp(0.4rem, 0.8vh, 0.75rem);
+}
+.rec-badge .dot {
+    width: clamp(6px, 1.8vw, 7px);
+    height: clamp(6px, 1.8vw, 7px);
+    background: var(--green);
+    border-radius: 50%;
+}
+.vote-block h2 {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    font-weight: 600;
+    color: var(--text-light);
+    line-height: 1.15;
+    margin-bottom: clamp(0.3rem, 0.6vh, 0.5rem);
+}
+.vote-detail {
+    font-size: var(--body-size);
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.vote-detail strong {
+    color: var(--text-light);
+    font-weight: 600;
+}
+.alt-block {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.75rem);
+    background: var(--navy-mid);
+    border-radius: clamp(6px, 0.8vw, 10px);
+    padding: clamp(0.5rem, 1vw, 0.85rem) clamp(0.75rem, 1.2vw, 1.25rem);
+    border-left: 3px solid var(--blue);
+}
+.alt-badge {
+    background: oklch(22% 0.05 250);
+    color: var(--blue);
+    padding: clamp(0.12rem, 0.2vh, 0.2rem) clamp(0.4rem, 0.6vw, 0.6rem);
+    border-radius: 3px;
+    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.alt-block p {
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* ===========================================
+   SLIDE 4: CONSULTA WARNING
+   =========================================== */
+.slide--warning {
+    background: var(--navy);
+}
+.warning-box {
+    background: oklch(20% 0.06 25);
+    border: 1.5px solid oklch(35% 0.10 25);
+    border-radius: clamp(8px, 1vw, 14px);
+    padding: clamp(1rem, 2vw, 1.75rem);
+    text-align: center;
+    max-width: min(85vw, 600px);
+    margin: 0 auto;
+}
+.warning-icon-big {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: clamp(0.3rem, 0.6vh, 0.5rem);
+    display: block;
+}
+.warning-box h2 {
+    font-family: var(--font-display);
+    font-size: var(--h2-size);
+    color: oklch(82% 0.08 25);
+    font-weight: 600;
+    margin-bottom: clamp(0.3rem, 0.6vh, 0.6rem);
+}
+.warning-box p {
+    font-size: var(--body-size);
+    color: oklch(72% 0.04 25);
+    line-height: 1.6;
+    max-width: 38ch;
+    margin: 0 auto;
+}
+.warning-box .highlight {
+    display: inline-block;
+    background: oklch(30% 0.08 25);
+    padding: 0.1em 0.5em;
+    border-radius: 4px;
+    color: oklch(88% 0.06 25);
+    font-weight: 600;
+}
+
+/* ===========================================
+   SLIDE 5: CANDIDATES GRID
+   =========================================== */
+.slide--candidates {
+    background: var(--navy);
+}
+.cand-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+    max-width: min(92vw, 900px);
+    margin: 0 auto;
+    width: 100%;
+}
+@media (min-width: 600px) {
+    .cand-grid { grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+    .cand-grid { grid-template-columns: repeat(3, 1fr); }
+    .cand-card { padding: clamp(0.4rem, 1vw, 0.75rem); }
+    .cand-card h3 { font-size: clamp(0.8rem, 2vw, 1.1rem); }
+}
+.cand-card {
+    background: var(--navy-mid);
+    border-radius: clamp(8px, 1vw, 12px);
+    padding: clamp(0.8rem, 1.5vw, 1.5rem);
+    border-top: clamp(3px, 0.4vw, 4px) solid var(--navy-light);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.3rem, 0.5vh, 0.5rem);
+}
+.cand-card--1 { border-top-color: var(--green); }
+.cand-card--2 { border-top-color: var(--blue); }
+.cand-card--3 { border-top-color: oklch(50% 0.02 260); }
+.cand-rank {
+    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.cand-card--1 .cand-rank { color: var(--green); }
+.cand-card--2 .cand-rank { color: var(--blue); }
+.cand-card--3 .cand-rank { color: oklch(55% 0.02 260); }
+.cand-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--text-light);
+    line-height: 1.15;
+}
+.cand-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.15rem, 0.3vh, 0.3rem);
+}
+.cand-card li {
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.4;
+    padding-left: clamp(0.6rem, 1vw, 0.9rem);
+    position: relative;
+}
+.cand-card li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+.cand-card--1 li::before { color: var(--green); }
+.cand-card--2 li::before { color: var(--blue); }
+.cand-card--3 li::before { color: oklch(50% 0.02 260); }
+
+/* ===========================================
+   SLIDE 6: SUMMARY + LOGISTICS
+   =========================================== */
+.slide--summary {
+    background: var(--navy);
+}
+.summary-table {
+    background: var(--navy-mid);
+    border-radius: clamp(8px, 1vw, 14px);
+    overflow: hidden;
+    max-width: min(90vw, 750px);
+    margin: 0 auto;
+    width: 100%;
+}
+.summary-table-head {
+    background: var(--navy-light);
+    padding: clamp(0.4rem, 0.8vh, 0.6rem) clamp(0.75rem, 1.2vw, 1.25rem);
+}
+.summary-table-head h3 {
+    font-size: clamp(0.7rem, 2.8vw, 0.7rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+.summary-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr 1.5fr;
+    padding: clamp(0.35rem, 0.7vh, 0.55rem) clamp(0.75rem, 1.2vw, 1.25rem);
+    border-bottom: 1px solid oklch(22% 0.025 260);
+    gap: clamp(0.3rem, 0.5vw, 0.5rem);
+    align-items: center;
+}
+.summary-row:last-child { border-bottom: none; }
+.summary-row.head {
+    background: oklch(18% 0.025 260);
+}
+.summary-row span {
+    font-size: var(--small-size);
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+.summary-row.head span {
+    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: oklch(50% 0.02 260);
+}
+.summary-row .vote-name {
+    font-weight: 700;
+    color: var(--gold);
+}
+.logistics-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.4rem, 2vw, 0.5rem);
+    background: oklch(20% 0.04 85);
+    border-radius: clamp(6px, 0.8vw, 10px);
+    padding: clamp(0.6rem, 2.5vw, 0.85rem);
+    max-width: min(92vw, 750px);
+    margin: 0 auto;
+    width: 100%;
+}
+@media (max-width: 360px) {
+    .logistics-bar { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+.log-item { text-align: center; }
+.log-label {
+    font-size: clamp(0.625rem, 2.5vw, 0.625rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: clamp(0.1rem, 0.2vh, 0.15rem);
+}
+.log-value {
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+/* ===========================================
+   SLIDE 7: CLOSING
+   =========================================== */
+.slide--closing {
+    background: var(--navy);
+    text-align: center;
+}
+.slide--closing .slide-content {
+    align-items: center;
+    gap: var(--content-gap);
+}
+.closing-motto {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.4;
+    max-width: 26ch;
+}
+.closing-motto strong {
+    font-weight: 800;
+    font-style: normal;
+    color: var(--gold);
+}
+.closing-fine {
+    font-size: clamp(0.65rem, 2.8vw, 0.65rem);
+    color: oklch(42% 0.015 260);
+    line-height: 1.6;
+    max-width: 45ch;
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+.nav-dots {
+    position: fixed;
+    right: max(clamp(6px, 2vw, 20px), env(safe-area-inset-right));
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4px, 1vh, 10px);
+    z-index: 100;
+}
+.nav-dot {
+    width: clamp(8px, 2.2vw, 10px);
+    height: clamp(8px, 2.2vw, 10px);
+    border-radius: 50%;
+    background: oklch(30% 0.02 260);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: clamp(8px, 1vw, 12px); /* 44px+ touch target via padding */
+    background-clip: content-box;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav-dot:hover {
+    background: oklch(50% 0.04 260);
+    background-clip: content-box;
+}
+.nav-dot:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+.nav-dot.active {
+    background: var(--gold);
+    background-clip: content-box;
+    transform: scale(1.3);
+}
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 200;
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 0%;
+}
+
+/* ===========================================
+   TOUCH FEEDBACK
+   =========================================== */
+@media (hover: none) and (pointer: coarse) {
+    .nav-dot:active {
+        background: var(--gold);
+        background-clip: content-box;
+        transform: scale(1.5);
+    }
+    .vote-block:active,
+    .alt-block:active,
+    .cand-card:active,
+    .warning-box:active {
+        opacity: 0.85;
+        transition: opacity 0.1s;
+    }
+}
+
+/* ===========================================
+   CLOSING MOTTO MOBILE
+   =========================================== */
+.closing-motto {
+    font-size: clamp(1.25rem, 5.5vw, 2.5rem);
+}
+@media (min-width: 600px) {
+    .closing-motto {
+        font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    }
+}
+
+/* ===========================================
+   SCROLL-TRIGGERED ANIMATIONS
+   =========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(clamp(15px, 2vh, 30px));
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto; /* Release hint after animation completes */
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .scroll-cue { animation: none; opacity: 0.4; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+<!-- =============================================
+     SLIDE 1: TITLE
+     ============================================= -->
+<section class="slide slide--title" data-slide="0">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <div class="title-eyebrow reveal">Elecciones Legislativas</div>
+        <h1 class="title-main reveal reveal-delay-1">Guía de<br><em>Votación</em></h1>
+        <p class="title-sub reveal reveal-delay-2">8 de Marzo 2026 · Qué votar y por qué, desde una perspectiva de libre mercado.</p>
+        <p class="title-location reveal reveal-delay-3">Pereira, Risaralda · Colombia</p>
+    </div>
+    <div class="scroll-cue decorative">
+        <span>Desliza</span>
+        <div class="arrow"></div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 2: SENADO
+     ============================================= -->
+<section class="slide slide--vote" data-slide="1">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <div class="section-tag reveal">
+            <div class="num">1</div>
+            <span>Tarjetón Senado · Nacional</span>
+        </div>
+        <div class="vote-block reveal reveal-delay-1">
+            <div class="rec-badge"><span class="dot"></span> Voto recomendado</div>
+            <h2>Centro Democrático</h2>
+            <p class="vote-detail">
+                El bloque más fuerte contra Petro y Cepeda.
+                <strong>Andrés Forero</strong> encabeza la lista. Uribe en el #25.
+                Menos impuestos, más inversión, seguridad sin excusas.
+            </p>
+        </div>
+        <div class="alt-block reveal reveal-delay-2">
+            <div class="alt-badge">Alternativa</div>
+            <p>Salvación Nacional: derecha dura, estilo Bukele (Abelardo de la Espriella)</p>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 3: CÁMARA
+     ============================================= -->
+<section class="slide slide--vote" data-slide="2">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <div class="section-tag reveal">
+            <div class="num">2</div>
+            <span>Tarjetón Cámara · Risaralda</span>
+        </div>
+        <div class="vote-block reveal reveal-delay-1">
+            <div class="rec-badge"><span class="dot"></span> Voto recomendado</div>
+            <h2>Centro Democrático + MIRA</h2>
+            <p class="vote-detail">
+                <strong>Geovany Londoño</strong>, 2 periodos como diputado.
+                La única ficha de derecha que puede ganar 1 de los 4 curules en Risaralda.
+            </p>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 4: CONSULTA WARNING
+     ============================================= -->
+<section class="slide slide--warning" data-slide="3">
+    <div class="flag-stripe"></div>
+    <div class="slide-content" style="align-items:center;">
+        <div class="section-tag reveal">
+            <div class="num" style="background:var(--red);color:white;">3</div>
+            <span>Consulta Presidencial</span>
+        </div>
+        <div class="warning-box reveal reveal-delay-1">
+            <span class="warning-icon-big">⚠️</span>
+            <h2>Hay que pedirla</h2>
+            <p>
+                Pídanle al jurado la papeleta de la
+                <span class="highlight">"Gran Consulta por Colombia"</span>.
+                Si no la piden, no se las dan.
+            </p>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 5: CANDIDATES
+     ============================================= -->
+<section class="slide slide--candidates" data-slide="4">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <div class="section-tag reveal" style="margin:0 auto;">
+            <span>Candidatos · Consulta Presidencial</span>
+        </div>
+        <div class="cand-grid">
+            <div class="cand-card cand-card--1 reveal reveal-delay-1">
+                <div class="cand-rank">1ª Opción</div>
+                <h3>Paloma Valencia</h3>
+                <ul>
+                    <li>Centro Democrático</li>
+                    <li>Lidera encuestas ~44%</li>
+                    <li>Menos impuestos</li>
+                    <li>Libre mercado</li>
+                </ul>
+            </div>
+            <div class="cand-card cand-card--2 reveal reveal-delay-2">
+                <div class="cand-rank">2ª Opción</div>
+                <h3>Vicky Dávila</h3>
+                <ul>
+                    <li>Independiente</li>
+                    <li>~14% en encuestas</li>
+                    <li>Pro-fracking, disciplina fiscal</li>
+                    <li>Sin el peso del uribismo</li>
+                </ul>
+            </div>
+            <div class="cand-card cand-card--3 reveal reveal-delay-3">
+                <div class="cand-rank">3ª Opción</div>
+                <h3>J.D. Oviedo</h3>
+                <ul>
+                    <li>Ex-director DANE</li>
+                    <li>~11% en encuestas</li>
+                    <li>Tecnócrata, no político</li>
+                    <li>Gobierna con datos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 6: SUMMARY + LOGISTICS
+     ============================================= -->
+<section class="slide slide--summary" data-slide="5">
+    <div class="flag-stripe"></div>
+    <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="summary-table reveal">
+            <div class="summary-table-head">
+                <h3>Resumen Rápido</h3>
+            </div>
+            <div class="summary-row head">
+                <span>Tarjetón</span>
+                <span>Voto</span>
+                <span>Por qué</span>
+            </div>
+            <div class="summary-row">
+                <span>Senado</span>
+                <span class="vote-name">Centro Democrático</span>
+                <span>Bloque opositor más fuerte</span>
+            </div>
+            <div class="summary-row">
+                <span>Cámara</span>
+                <span class="vote-name">C. Democrático + MIRA</span>
+                <span>Londoño tiene opción real</span>
+            </div>
+            <div class="summary-row">
+                <span>Consulta ⚠️</span>
+                <span class="vote-name">Paloma Valencia</span>
+                <span>Une la derecha contra Cepeda</span>
+            </div>
+        </div>
+        <div class="logistics-bar reveal reveal-delay-1">
+            <div class="log-item">
+                <div class="log-label">Horario</div>
+                <div class="log-value">8am a 4pm</div>
+            </div>
+            <div class="log-item">
+                <div class="log-label">Documento</div>
+                <div class="log-value">Cédula</div>
+            </div>
+            <div class="log-item">
+                <div class="log-label">Tu puesto</div>
+                <div class="log-value" style="font-size:clamp(0.65rem,2.8vw,0.8rem)">registraduria.gov.co</div>
+            </div>
+        </div>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- =============================================
+     SLIDE 7: CLOSING
+     ============================================= -->
+<section class="slide slide--closing" data-slide="6">
+    <div class="flag-stripe"></div>
+    <div class="slide-content">
+        <p class="closing-motto reveal">
+            Armar un Congreso que frene a la izquierda. Elegir al candidato <strong>más fuerte</strong> para mayo.
+        </p>
+        <p class="closing-fine reveal reveal-delay-1">
+            Guía informativa · Perspectiva libertaria / libre mercado<br>
+            No es propaganda electoral oficial · Marzo 8, 2026
+        </p>
+    </div>
+    <div class="flag-stripe"></div>
+</section>
+
+<!-- ===========================================
+     JAVASCRIPT: Navigation & Animations
+     =========================================== -->
+<script>
+(function() {
+    'use strict';
+
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const navDotsContainer = document.getElementById('navDots');
+    const progressBar = document.getElementById('progressBar');
+    let currentSlide = 0;
+    let isScrolling = false;
+
+    // Create nav dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        if (i === 0) dot.setAttribute('aria-current', 'step');
+        dot.addEventListener('click', () => goToSlide(i));
+        navDotsContainer.appendChild(dot);
+    });
+
+    function updateUI(index) {
+        // Update dots
+        navDotsContainer.querySelectorAll('.nav-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === index);
+            if (i === index) d.setAttribute('aria-current', 'step');
+            else d.removeAttribute('aria-current');
+        });
+        // Update progress bar
+        const pct = ((index) / (totalSlides - 1)) * 100;
+        progressBar.style.width = pct + '%';
+    }
+
+    function goToSlide(index) {
+        if (index < 0 || index >= totalSlides || isScrolling) return;
+        isScrolling = true;
+        currentSlide = index;
+        slides[index].scrollIntoView({ behavior: 'smooth' });
+        updateUI(index);
+        setTimeout(() => { isScrolling = false; }, 600);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            goToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goToSlide(currentSlide - 1);
+        }
+    });
+
+    // Touch swipe support
+    let touchStartY = 0;
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+        const dy = touchStartY - e.changedTouches[0].clientY;
+        const dx = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(dy) < 30 && Math.abs(dx) < 30) return; // too small
+        if (Math.abs(dy) > Math.abs(dx)) {
+            // Vertical swipe
+            if (dy > 0) goToSlide(currentSlide + 1);
+            else goToSlide(currentSlide - 1);
+        }
+    }, { passive: true });
+
+    // Wheel navigation (throttled)
+    let wheelCooldown = false;
+    document.addEventListener('wheel', (e) => {
+        if (wheelCooldown) return;
+        wheelCooldown = true;
+        if (e.deltaY > 30) goToSlide(currentSlide + 1);
+        else if (e.deltaY < -30) goToSlide(currentSlide - 1);
+        setTimeout(() => { wheelCooldown = false; }, 800);
+    }, { passive: true });
+
+    // IntersectionObserver for scroll-snap sync
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                const idx = parseInt(entry.target.dataset.slide);
+                if (!isNaN(idx)) {
+                    currentSlide = idx;
+                    updateUI(idx);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    slides.forEach(s => observer.observe(s));
+
+    // Reveal animations on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Init
+    updateUI(0);
+    // Trigger initial reveals for first slide
+    slides[0].querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+})();
+</script>
+
+</body>
+</html>
